@@ -92,7 +92,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VMS.TPS.Common.Model.Types">
+    <Reference Include="VMS.TPS.Common.Model.Types, Version=11.0.47.555, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\VMS.TPS.Common.Model.Types.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
@@ -175,7 +176,6 @@
     <Compile Include="Facade\API\BeamParameters.cs" />
     <Compile Include="Facade\API\Block.cs" />
     <Compile Include="Facade\API\Bolus.cs" />
-    <Compile Include="Facade\API\BrachyPlanSetup.cs" />
     <Compile Include="Facade\API\BrachySolidApplicator.cs" />
     <Compile Include="Facade\API\BrachyTreatmentUnit.cs" />
     <Compile Include="Facade\API\CalculationResult.cs" />
@@ -192,25 +192,12 @@
     <Compile Include="Facade\API\EvaluationDose.cs" />
     <Compile Include="Facade\API\ExternalBeam.cs" />
     <Compile Include="Facade\API\ExternalBeamTreatmentUnit.cs" />
-    <Compile Include="Facade\API\ExternalPlanSetup.cs" />
     <Compile Include="Facade\API\FieldReferencePoint.cs" />
     <Compile Include="Facade\API\Fractionation.cs" />
     <Compile Include="Facade\API\Hospital.cs" />
     <Compile Include="Facade\API\Image.cs" />
     <Compile Include="Facade\API\Isodose.cs" />
     <Compile Include="Facade\API\MLC.cs" />
-    <Compile Include="Facade\API\OptimizationEUDObjective.cs" />
-    <Compile Include="Facade\API\OptimizationIMRTBeamParameter.cs" />
-    <Compile Include="Facade\API\OptimizationMeanDoseObjective.cs" />
-    <Compile Include="Facade\API\OptimizationNormalTissueParameter.cs" />
-    <Compile Include="Facade\API\OptimizationObjective.cs" />
-    <Compile Include="Facade\API\OptimizationParameter.cs" />
-    <Compile Include="Facade\API\OptimizationPointCloudParameter.cs" />
-    <Compile Include="Facade\API\OptimizationPointObjective.cs" />
-    <Compile Include="Facade\API\OptimizationSetup.cs" />
-    <Compile Include="Facade\API\OptimizerDVH.cs" />
-    <Compile Include="Facade\API\OptimizerObjectiveValue.cs" />
-    <Compile Include="Facade\API\OptimizerResult.cs" />
     <Compile Include="Facade\API\Patient.cs" />
     <Compile Include="Facade\API\PatientSummary.cs" />
     <Compile Include="Facade\API\PlanningItem.cs" />
@@ -224,7 +211,6 @@
     <Compile Include="Facade\API\Registration.cs" />
     <Compile Include="Facade\API\ScriptContext.cs" />
     <Compile Include="Facade\API\SeedCollection.cs" />
-    <Compile Include="Facade\API\SegmentVolume.cs" />
     <Compile Include="Facade\API\SerializableObject.cs" />
     <Compile Include="Facade\API\Series.cs" />
     <Compile Include="Facade\API\Slot.cs" />

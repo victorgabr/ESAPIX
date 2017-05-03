@@ -176,64 +176,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public SegmentVolume SegmentVolume
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("SegmentVolume")
-                        ? _client.SegmentVolume
-                        : default(SegmentVolume);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue(sc =>
-                {
-                    if (DefaultHelper.IsDefault(local._client.SegmentVolume)) return default(SegmentVolume);
-                    return new SegmentVolume(local._client.SegmentVolume);
-                });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.SegmentVolume = value;
-            }
-        }
-
-        public IEnumerable<StructureCodeInfo> StructureCodeInfos
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                {
-                    if ((_client as ExpandoObject).HasProperty("StructureCodeInfos"))
-                        foreach (var item in _client.StructureCodeInfos) yield return item;
-                    else yield break;
-                }
-                else
-                {
-                    IEnumerator enumerator = null;
-                    X.Instance.CurrentContext.Thread.Invoke(() =>
-                    {
-                        var asEnum = (IEnumerable) _client.StructureCodeInfos;
-                        enumerator = asEnum.GetEnumerator();
-                    });
-                    while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
-                    {
-                        var facade = default(StructureCodeInfo);
-                        X.Instance.CurrentContext.Thread.Invoke(() =>
-                        {
-                            var vms = enumerator.Current;
-                            if (vms != null)
-                                facade = (StructureCodeInfo) vms;
-                        });
-                        if (facade != null)
-                            yield return facade;
-                    }
-                }
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.StructureCodeInfos = value;
-            }
-        }
 
         public double Volume
         {
@@ -275,26 +217,6 @@ namespace ESAPIX.Facade.API
         {
             var local = this;
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.AddContourOnImagePlane(contour, z); });
-        }
-
-        public SegmentVolume And(SegmentVolume other)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.And(other._client));
-            });
-            return retVal;
-        }
-
-        public SegmentVolume AsymmetricMargin(AxisAlignedMargins margins)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.AsymmetricMargin(margins));
-            });
-            return retVal;
         }
 
         public bool CanConvertToHighResolution()
@@ -375,33 +297,6 @@ namespace ESAPIX.Facade.API
             return retVal;
         }
 
-        public SegmentVolume Margin(double marginInMM)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.Margin(marginInMM));
-            });
-            return retVal;
-        }
-
-        public SegmentVolume Not()
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc => { return new SegmentVolume(local._client.Not()); });
-            return retVal;
-        }
-
-        public SegmentVolume Or(SegmentVolume other)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.Or(other._client));
-            });
-            return retVal;
-        }
-
         public bool ResetAssignedHU()
         {
             var local = this;
@@ -415,30 +310,10 @@ namespace ESAPIX.Facade.API
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.SetAssignedHU(huValue); });
         }
 
-        public SegmentVolume Sub(SegmentVolume other)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.Sub(other._client));
-            });
-            return retVal;
-        }
-
         public void SubtractContourOnImagePlane(VVector[] contour, int z)
         {
             var local = this;
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.SubtractContourOnImagePlane(contour, z); });
-        }
-
-        public SegmentVolume Xor(SegmentVolume other)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new SegmentVolume(local._client.Xor(other._client));
-            });
-            return retVal;
         }
     }
 }

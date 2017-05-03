@@ -226,109 +226,10 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public IEnumerable<ExternalPlanSetup> ExternalPlanSetups
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                {
-                    if ((_client as ExpandoObject).HasProperty("ExternalPlanSetups"))
-                        foreach (var item in _client.ExternalPlanSetups) yield return item;
-                    else yield break;
-                }
-                else
-                {
-                    IEnumerator enumerator = null;
-                    X.Instance.CurrentContext.Thread.Invoke(() =>
-                    {
-                        var asEnum = (IEnumerable) _client.ExternalPlanSetups;
-                        enumerator = asEnum.GetEnumerator();
-                    });
-                    while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
-                    {
-                        var facade = new ExternalPlanSetup();
-                        X.Instance.CurrentContext.Thread.Invoke(() =>
-                        {
-                            var vms = enumerator.Current;
-                            if (vms != null)
-                                facade._client = vms;
-                        });
-                        if (facade._client != null)
-                            yield return facade;
-                    }
-                }
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.ExternalPlanSetups = value;
-            }
-        }
-
-        public IEnumerable<BrachyPlanSetup> BrachyPlanSetups
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                {
-                    if ((_client as ExpandoObject).HasProperty("BrachyPlanSetups"))
-                        foreach (var item in _client.BrachyPlanSetups) yield return item;
-                    else yield break;
-                }
-                else
-                {
-                    IEnumerator enumerator = null;
-                    X.Instance.CurrentContext.Thread.Invoke(() =>
-                    {
-                        var asEnum = (IEnumerable) _client.BrachyPlanSetups;
-                        enumerator = asEnum.GetEnumerator();
-                    });
-                    while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
-                    {
-                        var facade = new BrachyPlanSetup();
-                        X.Instance.CurrentContext.Thread.Invoke(() =>
-                        {
-                            var vms = enumerator.Current;
-                            if (vms != null)
-                                facade._client = vms;
-                        });
-                        if (facade._client != null)
-                            yield return facade;
-                    }
-                }
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.BrachyPlanSetups = value;
-            }
-        }
-
         public void WriteXml(System.Xml.XmlWriter writer)
         {
             var local = this;
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.WriteXml(writer); });
-        }
-
-        public ExternalPlanSetup AddExternalPlanSetup(StructureSet structureSet)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new ExternalPlanSetup(local._client.AddExternalPlanSetup(structureSet._client));
-            });
-            return retVal;
-        }
-
-        public ExternalPlanSetup AddExternalPlanSetupAsVerificationPlan(StructureSet structureSet,
-            ExternalPlanSetup verifiedPlan)
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return new ExternalPlanSetup(
-                    local._client.AddExternalPlanSetupAsVerificationPlan(structureSet._client,
-                        verifiedPlan._client));
-            });
-            return retVal;
         }
 
         public bool CanAddPlanSetup(StructureSet structureSet)

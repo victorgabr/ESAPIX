@@ -44,25 +44,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public PlanSumOperation PlanSumOperation
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("PlanSumOperation")
-                        ? _client.PlanSumOperation
-                        : default(PlanSumOperation);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue<PlanSumOperation>(sc =>
-                {
-                    return local._client.PlanSumOperation;
-                });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.PlanSumOperation = value;
-            }
-        }
 
         public double PlanWeight
         {

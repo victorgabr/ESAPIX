@@ -840,17 +840,6 @@ namespace ESAPIX.Facade.API
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.ApplyParameters(beamParams._client); });
         }
 
-        public bool CanSetOptimalFluence(Fluence fluence, out string message)
-        {
-            var message_OUT = default(string);
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc =>
-            {
-                return local._client.CanSetOptimalFluence(fluence, out message_OUT);
-            });
-            message = message_OUT;
-            return retVal;
-        }
 
         public BeamParameters GetEditableParameters()
         {
@@ -862,13 +851,6 @@ namespace ESAPIX.Facade.API
             return retVal;
         }
 
-        public Fluence GetOptimalFluence()
-        {
-            var local = this;
-            var retVal = X.Instance.CurrentContext.GetValue(sc => { return local._client.GetOptimalFluence(); });
-            return retVal;
-        }
-
         public VVector GetSourceLocation(double gantryAngle)
         {
             var local = this;
@@ -877,12 +859,6 @@ namespace ESAPIX.Facade.API
                 return local._client.GetSourceLocation(gantryAngle);
             });
             return retVal;
-        }
-
-        public void SetOptimalFluence(Fluence fluence)
-        {
-            var local = this;
-            X.Instance.CurrentContext.Thread.Invoke(() => { local._client.SetOptimalFluence(fluence); });
         }
     }
 }

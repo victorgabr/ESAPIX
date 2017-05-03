@@ -17,12 +17,6 @@ namespace ESAPIX.Interfaces
     /// </summary>
     public interface IScriptContext
     {
-        string ApplicationName { get; }
-
-        BrachyPlanSetup BrachyPlanSetup { get; }
-
-        IEnumerable<BrachyPlanSetup> BrachyPlansInScope { get; }
-
         User CurrentUser { get; }
 
         Course Course { get; }
@@ -30,10 +24,6 @@ namespace ESAPIX.Interfaces
         Image Image { get; }
 
         Patient Patient { get; }
-
-        ExternalPlanSetup ExternalPlanSetup { get; }
-
-        IEnumerable<ExternalPlanSetup> ExternalPlansInScope { get; }
 
         PlanSetup PlanSetup { get; }
 
@@ -69,10 +59,7 @@ namespace ESAPIX.Interfaces
 
         //These are only used in Standalone Context, but are here so casting does not have to be performed to check
         event PatientChangedHandler PatientChanged;
-
         event PlanSetupChangedHandler PlanSetupChanged;
-        event ExternalPlanSetupChangedHandler ExternalPlanSetupChanged;
-        event PlanSetupChangedHandler BrachyPlanSetupChanged;
         event CourseChangedHandler CourseChanged;
 
         #endregion

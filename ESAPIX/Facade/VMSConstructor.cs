@@ -71,18 +71,6 @@ namespace ESAPIX.Facade
             return XContext.Instance.CurrentContext.GetValue(sc => { return ConstructVVectorFunc0(xi, yi, zi); });
         }
 
-        internal static dynamic ConstructAxisAlignedMargins(StructureMarginGeometry geometry, double x1, double y1,
-            double z1, double x2, double y2, double z2)
-        {
-            if (ConstructAxisAlignedMarginsFunc0 == null)
-                throw new NullReferenceException(
-                    "The function ConstructAxisAlignedMarginsFunc0 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructAxisAlignedMarginsFunc0(geometry, x1, y1, z1, x2, y2, z2);
-            });
-        }
-
         internal static dynamic ConstructStructureCodeInfo(string codingScheme, string code)
         {
             if (ConstructStructureCodeInfoFunc0 == null)
@@ -186,67 +174,6 @@ namespace ESAPIX.Facade
             });
         }
 
-        internal static dynamic ConstructOptimizationOptionsIMRT(int maxIterations, OptimizationOption initialState,
-            int numberOfStepsBeforeIntermediateDose, OptimizationConvergenceOption convergenceOption, string mlcId)
-        {
-            if (ConstructOptimizationOptionsIMRTFunc0 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsIMRTFunc0 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsIMRTFunc0(maxIterations, initialState,
-                    numberOfStepsBeforeIntermediateDose, convergenceOption, mlcId);
-            });
-        }
-
-        internal static dynamic ConstructOptimizationOptionsIMRT(int maxIterations, OptimizationOption initialState,
-            OptimizationConvergenceOption convergenceOption, OptimizationIntermediateDoseOption intermediateDoseOption,
-            string mlcId)
-        {
-            if (ConstructOptimizationOptionsIMRTFunc1 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsIMRTFunc1 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsIMRTFunc1(maxIterations, initialState, convergenceOption,
-                    intermediateDoseOption, mlcId);
-            });
-        }
-
-        internal static dynamic ConstructOptimizationOptionsIMRT(int maxIterations, OptimizationOption initialState,
-            OptimizationConvergenceOption convergenceOption, string mlcId)
-        {
-            if (ConstructOptimizationOptionsIMRTFunc2 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsIMRTFunc2 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsIMRTFunc2(maxIterations, initialState, convergenceOption, mlcId);
-            });
-        }
-
-        internal static dynamic ConstructOptimizationOptionsVMAT(OptimizationOption startOption, string mlcId)
-        {
-            if (ConstructOptimizationOptionsVMATFunc0 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsVMATFunc0 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsVMATFunc0(startOption, mlcId);
-            });
-        }
-
-        internal static dynamic ConstructOptimizationOptionsVMAT(
-            OptimizationIntermediateDoseOption intermediateDoseOption, string mlcId)
-        {
-            if (ConstructOptimizationOptionsVMATFunc1 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsVMATFunc1 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsVMATFunc1(intermediateDoseOption, mlcId);
-            });
-        }
 
         internal static dynamic ConstructOptimizationOptionsVMAT(int numberOfCycles, string mlcId)
         {
@@ -256,19 +183,6 @@ namespace ESAPIX.Facade
             return XContext.Instance.CurrentContext.GetValue(sc =>
             {
                 return ConstructOptimizationOptionsVMATFunc2(numberOfCycles, mlcId);
-            });
-        }
-
-        internal static dynamic ConstructOptimizationOptionsVMAT(OptimizationOption startOption,
-            OptimizationIntermediateDoseOption intermediateDoseOption, int numberOfCycles, string mlcId)
-        {
-            if (ConstructOptimizationOptionsVMATFunc3 == null)
-                throw new NullReferenceException(
-                    "The function ConstructOptimizationOptionsVMATFunc3 has not been initialized. Try calling FacadeInitializer.Initialize() in ESAPIX.VMS before calling this method.");
-            return XContext.Instance.CurrentContext.GetValue(sc =>
-            {
-                return ConstructOptimizationOptionsVMATFunc3(startOption, intermediateDoseOption, numberOfCycles,
-                    mlcId);
             });
         }
 

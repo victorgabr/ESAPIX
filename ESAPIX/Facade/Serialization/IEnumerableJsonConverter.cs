@@ -27,8 +27,6 @@ namespace ESAPIX.Facade.Serialization
             typeof(IEnumerable<Course>),
             typeof(IEnumerable<PlanSetup>),
             typeof(IEnumerable<PlanSum>),
-            typeof(IEnumerable<ExternalPlanSetup>),
-            typeof(IEnumerable<BrachyPlanSetup>),
             typeof(IEnumerable<Diagnosis>),
             typeof(IEnumerable<Image>),
             typeof(IEnumerable<Catheter>),

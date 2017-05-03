@@ -157,47 +157,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public ExternalPlanSetup ExternalPlanSetup
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("ExternalPlanSetup")
-                        ? _client.ExternalPlanSetup
-                        : default(ExternalPlanSetup);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue(sc =>
-                {
-                    if (DefaultHelper.IsDefault(local._client.ExternalPlanSetup)) return default(ExternalPlanSetup);
-                    return new ExternalPlanSetup(local._client.ExternalPlanSetup);
-                });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.ExternalPlanSetup = value;
-            }
-        }
-
-        public BrachyPlanSetup BrachyPlanSetup
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("BrachyPlanSetup")
-                        ? _client.BrachyPlanSetup
-                        : default(BrachyPlanSetup);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue(sc =>
-                {
-                    if (DefaultHelper.IsDefault(local._client.BrachyPlanSetup)) return default(BrachyPlanSetup);
-                    return new BrachyPlanSetup(local._client.BrachyPlanSetup);
-                });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.BrachyPlanSetup = value;
-            }
-        }
 
         public IEnumerable<PlanSetup> PlansInScope
         {
@@ -237,82 +196,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public IEnumerable<ExternalPlanSetup> ExternalPlansInScope
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                {
-                    if ((_client as ExpandoObject).HasProperty("ExternalPlansInScope"))
-                        foreach (var item in _client.ExternalPlansInScope) yield return item;
-                    else yield break;
-                }
-                else
-                {
-                    IEnumerator enumerator = null;
-                    X.Instance.CurrentContext.Thread.Invoke(() =>
-                    {
-                        var asEnum = (IEnumerable) _client.ExternalPlansInScope;
-                        enumerator = asEnum.GetEnumerator();
-                    });
-                    while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
-                    {
-                        var facade = new ExternalPlanSetup();
-                        X.Instance.CurrentContext.Thread.Invoke(() =>
-                        {
-                            var vms = enumerator.Current;
-                            if (vms != null)
-                                facade._client = vms;
-                        });
-                        if (facade._client != null)
-                            yield return facade;
-                    }
-                }
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.ExternalPlansInScope = value;
-            }
-        }
-
-        public IEnumerable<BrachyPlanSetup> BrachyPlansInScope
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                {
-                    if ((_client as ExpandoObject).HasProperty("BrachyPlansInScope"))
-                        foreach (var item in _client.BrachyPlansInScope) yield return item;
-                    else yield break;
-                }
-                else
-                {
-                    IEnumerator enumerator = null;
-                    X.Instance.CurrentContext.Thread.Invoke(() =>
-                    {
-                        var asEnum = (IEnumerable) _client.BrachyPlansInScope;
-                        enumerator = asEnum.GetEnumerator();
-                    });
-                    while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
-                    {
-                        var facade = new BrachyPlanSetup();
-                        X.Instance.CurrentContext.Thread.Invoke(() =>
-                        {
-                            var vms = enumerator.Current;
-                            if (vms != null)
-                                facade._client = vms;
-                        });
-                        if (facade._client != null)
-                            yield return facade;
-                    }
-                }
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.BrachyPlansInScope = value;
-            }
-        }
-
         public IEnumerable<PlanSum> PlanSumsInScope
         {
             get
@@ -348,23 +231,6 @@ namespace ESAPIX.Facade.API
             set
             {
                 if (_client is ExpandoObject) _client.PlanSumsInScope = value;
-            }
-        }
-
-        public string ApplicationName
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("ApplicationName")
-                        ? _client.ApplicationName
-                        : default(string);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue<string>(sc => { return local._client.ApplicationName; });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.ApplicationName = value;
             }
         }
 

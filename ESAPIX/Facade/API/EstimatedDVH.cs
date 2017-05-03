@@ -133,20 +133,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-        public DVHEstimateType Type
-        {
-            get
-            {
-                if (_client is ExpandoObject)
-                    return (_client as ExpandoObject).HasProperty("Type") ? _client.Type : default(DVHEstimateType);
-                var local = this;
-                return X.Instance.CurrentContext.GetValue<DVHEstimateType>(sc => { return local._client.Type; });
-            }
-            set
-            {
-                if (_client is ExpandoObject) _client.Type = value;
-            }
-        }
 
         public void WriteXml(System.Xml.XmlWriter writer)
         {
