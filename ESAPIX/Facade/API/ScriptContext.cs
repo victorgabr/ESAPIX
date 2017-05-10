@@ -157,7 +157,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-
         public IEnumerable<PlanSetup> PlansInScope
         {
             get
@@ -231,6 +230,23 @@ namespace ESAPIX.Facade.API
             set
             {
                 if (_client is ExpandoObject) _client.PlanSumsInScope = value;
+            }
+        }
+
+        public string ApplicationName
+        {
+            get
+            {
+                if (_client is ExpandoObject)
+                    return (_client as ExpandoObject).HasProperty("ApplicationName")
+                        ? _client.ApplicationName
+                        : default(string);
+                var local = this;
+                return X.Instance.CurrentContext.GetValue<string>(sc => { return local._client.ApplicationName; });
+            }
+            set
+            {
+                if (_client is ExpandoObject) _client.ApplicationName = value;
             }
         }
 

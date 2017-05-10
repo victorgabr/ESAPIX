@@ -44,7 +44,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-
         public double PlanWeight
         {
             get

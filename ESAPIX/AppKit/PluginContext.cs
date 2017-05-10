@@ -25,9 +25,12 @@ namespace ESAPIX.AppKit
             Thread = new ScriptComThread(w.Dispatcher);
         }
 
+        public string ApplicationName => _ctx?.ApplicationName;
+
         public Course Course => _ctx?.Course;
 
         public User CurrentUser => _ctx?.CurrentUser;
+
 
         public Image Image => _ctx?.Image;
 
@@ -64,6 +67,7 @@ namespace ESAPIX.AppKit
         //These will never get called
         public event StandAloneContext.PatientChangedHandler PatientChanged;
         public event StandAloneContext.PlanSetupChangedHandler PlanSetupChanged;
+        public event StandAloneContext.PlanSetupChangedHandler BrachyPlanSetupChanged;
         public event StandAloneContext.CourseChangedHandler CourseChanged;
 
         #endregion

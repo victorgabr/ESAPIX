@@ -111,7 +111,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.Blocks;
+                        var asEnum = (IEnumerable)_client.Blocks;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
@@ -149,7 +149,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.Boluses;
+                        var asEnum = (IEnumerable)_client.Boluses;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
@@ -187,7 +187,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.CalculationLogs;
+                        var asEnum = (IEnumerable)_client.CalculationLogs;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
@@ -355,7 +355,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.FieldReferencePoints;
+                        var asEnum = (IEnumerable)_client.FieldReferencePoints;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
@@ -676,7 +676,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.Trays;
+                        var asEnum = (IEnumerable)_client.Trays;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))
@@ -735,7 +735,7 @@ namespace ESAPIX.Facade.API
                     IEnumerator enumerator = null;
                     X.Instance.CurrentContext.Thread.Invoke(() =>
                     {
-                        var asEnum = (IEnumerable) _client.Wedges;
+                        var asEnum = (IEnumerable)_client.Wedges;
                         enumerator = asEnum.GetEnumerator();
                     });
                     while (X.Instance.CurrentContext.GetValue(sc => enumerator.MoveNext()))

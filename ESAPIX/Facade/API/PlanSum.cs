@@ -151,6 +151,7 @@ namespace ESAPIX.Facade.API
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.WriteXml(writer); });
         }
 
+
         public double GetPlanWeight(PlanSetup planSetupInPlanSum)
         {
             var local = this;

@@ -94,7 +94,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="VMS.TPS.Common.Model.Types, Version=11.0.47.555, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\VMS.TPS.Common.Model.Types.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Varian\Vision\11.0\Bin64\VMS.TPS.Common.Model.Types.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -114,7 +114,6 @@
     <Compile Include="AppKit\Splash\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppKit\XScriptBase.cs" />
     <Compile Include="DVH\Constraints\ComplimentDoseAtVolumeConstraint.cs" />
     <Compile Include="DVH\Constraints\ComplimentVolumeAtDoseConstraint.cs" />
     <Compile Include="DVH\Constraints\ConstraintResult.cs" />
@@ -198,6 +197,18 @@
     <Compile Include="Facade\API\Image.cs" />
     <Compile Include="Facade\API\Isodose.cs" />
     <Compile Include="Facade\API\MLC.cs" />
+    <Compile Include="Facade\API\OptimizationEUDObjective.cs" />
+    <Compile Include="Facade\API\OptimizationIMRTBeamParameter.cs" />
+    <Compile Include="Facade\API\OptimizationMeanDoseObjective.cs" />
+    <Compile Include="Facade\API\OptimizationNormalTissueParameter.cs" />
+    <Compile Include="Facade\API\OptimizationObjective.cs" />
+    <Compile Include="Facade\API\OptimizationParameter.cs" />
+    <Compile Include="Facade\API\OptimizationPointCloudParameter.cs" />
+    <Compile Include="Facade\API\OptimizationPointObjective.cs" />
+    <Compile Include="Facade\API\OptimizationSetup.cs" />
+    <Compile Include="Facade\API\OptimizerDVH.cs" />
+    <Compile Include="Facade\API\OptimizerObjectiveValue.cs" />
+    <Compile Include="Facade\API\OptimizerResult.cs" />
     <Compile Include="Facade\API\Patient.cs" />
     <Compile Include="Facade\API\PatientSummary.cs" />
     <Compile Include="Facade\API\PlanningItem.cs" />
@@ -211,6 +222,7 @@
     <Compile Include="Facade\API\Registration.cs" />
     <Compile Include="Facade\API\ScriptContext.cs" />
     <Compile Include="Facade\API\SeedCollection.cs" />
+    <Compile Include="Facade\API\SegmentVolume.cs" />
     <Compile Include="Facade\API\SerializableObject.cs" />
     <Compile Include="Facade\API\Series.cs" />
     <Compile Include="Facade\API\Slot.cs" />

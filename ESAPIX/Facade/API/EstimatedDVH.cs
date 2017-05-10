@@ -133,7 +133,6 @@ namespace ESAPIX.Facade.API
             }
         }
 
-
         public void WriteXml(System.Xml.XmlWriter writer)
         {
             var local = this;

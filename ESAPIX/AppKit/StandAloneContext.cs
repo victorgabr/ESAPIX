@@ -50,6 +50,8 @@ namespace ESAPIX.AppKit
 
         public Dispatcher UIDispatcher { get; set; }
 
+        public string ApplicationName { get; set; } = "VMS Application";
+
         /// <summary>
         ///     Creates a new application context and binds it to a new thread
         /// </summary>
@@ -122,6 +124,7 @@ namespace ESAPIX.AppKit
             OnPatientChanged(null);
             SetPlanSetup(null);
             SetCourse(null);
+
         }
 
         #region CONTEXT CHANGED EVENTS

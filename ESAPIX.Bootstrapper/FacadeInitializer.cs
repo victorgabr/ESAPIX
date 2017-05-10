@@ -39,7 +39,7 @@ namespace ESAPIX.Bootstrapper
             VMSConstructor.ConstructDoseValueFunc0 = (value, unitName) => { return new T.DoseValue(value, unitName); };
             VMSConstructor.ConstructDoseValueFunc1 = (value, unit) =>
             {
-                return new T.DoseValue(value, (T.DoseValue.DoseUnit) unit);
+                return new T.DoseValue(value, (T.DoseValue.DoseUnit)unit);
             };
             VMSConstructor.ConstructProfilePointFunc0 = (position, value) =>
             {
@@ -47,7 +47,7 @@ namespace ESAPIX.Bootstrapper
             };
             VMSConstructor.ConstructDoseProfileFunc0 = (origin, step, data, unit) =>
             {
-                return new T.DoseProfile(origin, step, data, (T.DoseValue.DoseUnit) unit);
+                return new T.DoseProfile(origin, step, data, (T.DoseValue.DoseUnit)unit);
             };
             VMSConstructor.ConstructDVHPointFunc0 = (dose, volume, volumeUnit) =>
             {
@@ -56,7 +56,7 @@ namespace ESAPIX.Bootstrapper
             VMSConstructor.ConstructVRectFunc0 = (x1, y1, x2, y2) => { return new T.VRect<double>(x1, y1, x2, y2); };
             VMSConstructor.ConstructMetersetValueFunc0 = (value, unit) =>
             {
-                return new T.MetersetValue(value, (T.DosimeterUnit) unit);
+                return new T.MetersetValue(value, (T.DosimeterUnit)unit);
             };
             VMSConstructor.ConstructImageProfileFunc0 = (origin, step, data, unit) =>
             {

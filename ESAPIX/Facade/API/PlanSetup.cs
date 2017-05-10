@@ -231,6 +231,27 @@ namespace ESAPIX.Facade.API
             }
         }
 
+        public OptimizationSetup OptimizationSetup
+        {
+            get
+            {
+                if (_client is ExpandoObject)
+                    return (_client as ExpandoObject).HasProperty("OptimizationSetup")
+                        ? _client.OptimizationSetup
+                        : default(OptimizationSetup);
+                var local = this;
+                return X.Instance.CurrentContext.GetValue(sc =>
+                {
+                    if (DefaultHelper.IsDefault(local._client.OptimizationSetup)) return default(OptimizationSetup);
+                    return new OptimizationSetup(local._client.OptimizationSetup);
+                });
+            }
+            set
+            {
+                if (_client is ExpandoObject) _client.OptimizationSetup = value;
+            }
+        }
+
         public string PhotonCalculationModel
         {
             get
@@ -724,6 +745,7 @@ namespace ESAPIX.Facade.API
             X.Instance.CurrentContext.Thread.Invoke(() => { local._client.WriteXml(writer); });
         }
 
+
         public bool GetCalculationOption(string calculationModel, string optionName, out string optionValue)
         {
             var optionValue_OUT = default(string);
@@ -765,6 +787,16 @@ namespace ESAPIX.Facade.API
             var retVal = X.Instance.CurrentContext.GetValue(sc =>
             {
                 return local._client.GetVolumeAtDose(structure._client, dose, requestedVolumePresentation);
+            });
+            return retVal;
+        }
+
+        public bool SetCalculationOption(string calculationModel, string optionName, string optionValue)
+        {
+            var local = this;
+            var retVal = X.Instance.CurrentContext.GetValue(sc =>
+            {
+                return local._client.SetCalculationOption(calculationModel, optionName, optionValue);
             });
             return retVal;
         }
